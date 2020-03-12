@@ -1,0 +1,49 @@
+{
+  "name": "mocker",
+  "version": "1.0.0",
+  "description": "A node js REST API with mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "postinstall": "node bin/postinstall",
+    "start": "node --inspect=localhost:9058 bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rniverse/mocker.git"
+  },
+  "keywords": [
+    "mock",
+    "getting-started",
+    "template"
+  ],
+  "author": "rrkjonnapalli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rniverse/mocker/issues"
+  },
+  "homepage": "https://github.com/rniverse/mocker#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.4",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pino": "^5.17.0",
+    "pino-pretty": "^3.6.1",
+    "restana": "^4.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0"
+  }
+}

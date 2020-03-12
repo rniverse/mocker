@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "e2ca068c-4691-4911-89b9-6fff0fa54f8e",
+		"name": "mocker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "me",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "you",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "hello",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "xyz@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/signup",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "xyza",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "you",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/signin",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "xyza",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "you",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "f5hgt0R71VH4eRWt1Ufdar46",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/reset-password",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "xyza",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/forgot-password",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "notes",
+			"item": [
+				{
+					"name": "get-notes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYzMzVkNDcyYjk1NDZjNGNjNzlmMmMiLCJ1c2VybmFtZSI6Im1lIiwibmFtZSI6ImhlbGxvIiwiaWF0IjoxNTgzNzQ3NzY0fQ.kfmEPLiIzqz8Hu0WjW2KdCnf5CcA6xxZIik3dkaAH98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{domain}}/api/notes",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYzMzVkNDcyYjk1NDZjNGNjNzlmMmMiLCJ1c2VybmFtZSI6Im1lIiwibmFtZSI6ImhlbGxvIiwiaWF0IjoxNTgzNzQ3NzY0fQ.kfmEPLiIzqz8Hu0WjW2KdCnf5CcA6xxZIik3dkaAH98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "me",
+									"type": "text"
+								},
+								{
+									"key": "info",
+									"value": "you",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/notes",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-note",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTU3MTZ9.98jk02uSM7ogAM008-cAx2gy0TOW9g5nm8eD-NpV_zQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{domain}}/api/notes/5e68ab62c222017ba791ae35",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"notes",
+								"5e68ab62c222017ba791ae35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTU3MTZ9.98jk02uSM7ogAM008-cAx2gy0TOW9g5nm8eD-NpV_zQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"$set\": {\n\t\t\"title\": \"Updated first title 1st time\",\n\t\t\"info\": \"Updated first info 1st time\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/notes/5e68ab62c222017ba791ae3a",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"notes",
+								"5e68ab62c222017ba791ae3a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTU3MTZ9.98jk02uSM7ogAM008-cAx2gy0TOW9g5nm8eD-NpV_zQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"$set\": {\n\t\t\"title\": \"Updated first title 2nd time\",\n\t\t\"info\": \"Updated first info 2nd time\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/notes/5e68a2e80effc26dea975914",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"notes",
+								"5e68a2e80effc26dea975914"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "update-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYzMzVkNDcyYjk1NDZjNGNjNzlmMmMiLCJ1c2VybmFtZSI6Im1lIiwibmFtZSI6ImhlbGxvIiwiaWF0IjoxNTgzNzQ3NzY0fQ.kfmEPLiIzqz8Hu0WjW2KdCnf5CcA6xxZIik3dkaAH98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"$set\": {\n\t\t\"name\": \"harry\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/users",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTg3MjYsImV4cCI6MTU4MzkyNTkyNn0.Rg8XNdi364oL9_mk7ydJvSMU11WNHbSovuJm7ENzIMI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"oldPassword\": \"uoy\",\n\t\"newPassword\": \"you\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/users/change-password",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

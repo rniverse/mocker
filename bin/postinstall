@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const _async = require('async');
+
+const actions = [];
+const createCustomLibraries = (next) => {
+  const customLibraries = '../lib';
+  const destination = 'node_modules/root';
+
+  if (!fs.existsSync(destination)) {
+    fs.symlinkSync(customLibraries, destination, 'dir');
+  }
+  next();
+};
+
+actions.push(createCustomLibraries);
+
+process.nextTick(async () => {
+  _async.series(actions);
+});

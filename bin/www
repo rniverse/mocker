@@ -1,0 +1,37 @@
+const config = require('config');
+const { Mongodb } = require('root/db');
+const app = require('root/app');
+const http = require('http');
+
+const { Logger, handlePromise } = require('root/utils');
+
+const logger = Logger.child({ service: 'SRVR' });
+
+const server = http.createServer(app.callback());
+
+const { APP_SERVER_PORT, APP_SERVER_HOST } = config;
+
+const onListening = () => {
+  logger.info('Server listening on port %d', APP_SERVER_PORT);
+};
+
+const onError = (error) => {
+  logger.error(error);
+};
+logger.info('Starting server ...');
+
+const initializeServer = async () => {
+  const dbInitResponse = await handlePromise(Mongodb.connect());
+  const { ok, error } = dbInitResponse;
+  if (!ok) throw error;
+  server
+    .listen(APP_SERVER_PORT, APP_SERVER_HOST)
+    .on('listening', onListening)
+    .on('error', onError);
+};
+
+initializeServer()
+  .then()
+  .catch((err) => {
+    logger.error(err);
+  });
