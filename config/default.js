@@ -15,5 +15,5 @@ module.exports = {
   RESET_PASSWORD_EXPIRES_IN_MINUTES: process.env.RESET_PASSWORD_EXPIRES_IN || 15,
   APP_AUTH_JWT_KEY: process.env.RESET_PASSWORD_EXPIRES_IN || 'abcd@1234$POIU',
   APP_AUTH_JWT_EXPIRES_IN_MINUTES: process.env.RESET_PASSWORD_EXPIRES_IN || 2 * 60,
-  APP_LOG_LEVEL: 'trace'
+  APP_LOG_LEVEL: process.env.APP_LOG_LEVEL || 'trace' // allowed value [trace, debug, info, warn, error]
 };
