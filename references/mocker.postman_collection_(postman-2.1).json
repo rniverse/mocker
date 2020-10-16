@@ -10,7 +10,105 @@
 			"item": [
 				{
 					"name": "signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ad485ce-f060-4e85-abfb-dccb0e0af572",
+								"exec": [
+									"var result = JSON.parse(responseBody);",
+									"if (result.data) {",
+									"    postman.setEnvironmentVariable(\"bearer_token\", result.data.token);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "me1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "you1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "hello",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "xyz1@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/auth/signup",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c2da4118-e3b8-423b-8cdb-2f6a619e4fa9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c9adc9f-a02d-4b77-a3e9-63c88ea8fed1",
+								"exec": [
+									"var result = JSON.parse(responseBody);",
+									"if (result.data) {",
+									"    postman.setEnvironmentVariable(\"bearer_token\", result.data.token);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -30,69 +128,17 @@
 								},
 								{
 									"key": "password",
-									"value": "you",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "hello",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "xyz@gmail.com",
+									"value": "uoy",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{domain}}/api/auth/signup",
+							"raw": "{{domain}}/auth/signin",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
-								"api",
-								"auth",
-								"signup"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "signin",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "username",
-									"value": "xyza",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "you",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{domain}}/api/auth/signin",
-							"host": [
-								"{{domain}}"
-							],
-							"path": [
-								"api",
 								"auth",
 								"signin"
 							]
@@ -136,12 +182,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{domain}}/api/auth/reset-password",
+							"raw": "{{domain}}/auth/reset-password",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
-								"api",
 								"auth",
 								"reset-password"
 							]
@@ -175,12 +220,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{domain}}/api/auth/forgot-password",
+							"raw": "{{domain}}/auth/forgot-password",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
-								"api",
 								"auth",
 								"forgot-password"
 							]
@@ -205,7 +249,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYzMzVkNDcyYjk1NDZjNGNjNzlmMmMiLCJ1c2VybmFtZSI6Im1lIiwibmFtZSI6ImhlbGxvIiwiaWF0IjoxNTgzNzQ3NzY0fQ.kfmEPLiIzqz8Hu0WjW2KdCnf5CcA6xxZIik3dkaAH98",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -224,13 +268,18 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{domain}}/api/notes",
+							"raw": "{{domain}}/notes?limit=2",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
-								"api",
 								"notes"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -244,7 +293,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYzMzVkNDcyYjk1NDZjNGNjNzlmMmMiLCJ1c2VybmFtZSI6Im1lIiwibmFtZSI6ImhlbGxvIiwiaWF0IjoxNTgzNzQ3NzY0fQ.kfmEPLiIzqz8Hu0WjW2KdCnf5CcA6xxZIik3dkaAH98",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -263,7 +312,7 @@
 							"urlencoded": [
 								{
 									"key": "title",
-									"value": "me",
+									"value": "Hello you 2",
 									"type": "text"
 								},
 								{
@@ -274,12 +323,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{domain}}/api/notes",
+							"raw": "{{domain}}/notes",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
-								"api",
 								"notes"
 							]
 						}
@@ -297,7 +345,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTU3MTZ9.98jk02uSM7ogAM008-cAx2gy0TOW9g5nm8eD-NpV_zQ",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -316,14 +364,13 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{domain}}/api/notes/5e68ab62c222017ba791ae35",
+							"raw": "{{domain}}/notes/5f89a4860147fa0ad33ef838",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
-								"api",
 								"notes",
-								"5e68ab62c222017ba791ae35"
+								"5f89a4860147fa0ad33ef838"
 							]
 						}
 					},
@@ -337,7 +384,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTU3MTZ9.98jk02uSM7ogAM008-cAx2gy0TOW9g5nm8eD-NpV_zQ",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -382,7 +429,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTU3MTZ9.98jk02uSM7ogAM008-cAx2gy0TOW9g5nm8eD-NpV_zQ",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -427,18 +474,21 @@
 			"item": [
 				{
 					"name": "update-user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYzMzVkNDcyYjk1NDZjNGNjNzlmMmMiLCJ1c2VybmFtZSI6Im1lIiwibmFtZSI6ImhlbGxvIiwiaWF0IjoxNTgzNzQ3NzY0fQ.kfmEPLiIzqz8Hu0WjW2KdCnf5CcA6xxZIik3dkaAH98",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
 						},
-						"method": "PUT",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -457,13 +507,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/users",
+							"raw": "{{domain}}/api/users/5e7f093821721d334aaa7db2",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
-								"users"
+								"users",
+								"5e7f093821721d334aaa7db2"
 							]
 						}
 					},
@@ -477,7 +528,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTY4YTI5ODBlZmZjMjZkZWE5NzU5MTMiLCJ1c2VybmFtZSI6Inh5emEiLCJuYW1lIjoiaGVsbG8iLCJpYXQiOjE1ODM5MTg3MjYsImV4cCI6MTU4MzkyNTkyNn0.Rg8XNdi364oL9_mk7ydJvSMU11WNHbSovuJm7ENzIMI",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -493,7 +544,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"oldPassword\": \"uoy\",\n\t\"newPassword\": \"you\"\n}",
+							"raw": "{\n\t\"oldPassword\": \"you\",\n\t\"newPassword\": \"uoy\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
