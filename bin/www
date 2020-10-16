@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const config = require('config');
 const { Mongodb } = require('root/db');
 const app = require('root/app');
@@ -7,7 +9,7 @@ const { Logger, handlePromise } = require('root/utils');
 
 const logger = Logger.child({ service: 'SRVR' });
 
-const server = http.createServer(app.callback());
+const server = http.createServer(app);
 
 const { APP_SERVER_PORT, APP_SERVER_HOST } = config;
 

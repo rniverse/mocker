@@ -23,6 +23,8 @@ module.exports = {
     'no-useless-escape': ['off'],
     radix: ['off'],
     'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
-    'no-param-reassign': ['off']
+    'no-param-reassign': ['off'],
+    'no-restricted-globals': ['off'],
+    'no-continue': ['off']
   }
 };

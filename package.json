@@ -4,7 +4,8 @@
   "description": "A node js REST API with mongoose",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha",
+    "test": "nyc --reporter=text-summary --reporter=html mocha && eslint .",
+    "lint": "eslint .",
     "postinstall": "node bin/postinstall",
     "start": "node --inspect=localhost:9058 bin/www"
   },
@@ -28,6 +29,7 @@
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.6",
     "passport": "^0.4.1",
@@ -35,7 +37,7 @@
     "passport-local": "^1.0.0",
     "pino": "^5.17.0",
     "pino-pretty": "^3.6.1",
-    "restana": "^4.2.0"
+    "response-time": "^2.3.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
